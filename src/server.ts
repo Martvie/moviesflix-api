@@ -1,3 +1,12 @@
-const texte = "mamaeu";
+import express from "express";
 
-console.log(texte);
+const port = 3000;
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("Home page");
+});
+
+app.listen(port, () => {
+    console.log(`Servidor em execução em http://localhost:${port}`);
+});
