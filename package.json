@@ -1,0 +1,15 @@
+{
+  "name": "moviesflix-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tsx watch src/server.ts"
+  },
+  "author": "Martvie <marviedias@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4"
+  }
+}
