@@ -1,11 +1,14 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
+import SwaggerUi from "swagger-ui-express";
+import SwaggerDocument from "../swagger.json";
 
 const port = 3000;
 const app = express();
 const prisma = new PrismaClient();
 
 app.use(express.json());
+app.use("/docs", SwaggerUi.serve, SwaggerUi.setup(SwaggerDocument));
 
 app.get("/movies", async (_, res) => {
     const movies = await prisma.movie.findMany({
