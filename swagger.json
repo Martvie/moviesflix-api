@@ -63,6 +63,34 @@
                         "description": "Erro interno do servidor"
                     }
                 }
+            },
+            "delete": {
+                "tags":["Movie"],
+                "summary":"Remover um filme",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID do filme a Removido",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Filme Removido com sucesso"
+                    },
+                    "404": {
+                        "description": "Filme não encontrado!"
+                    },
+                    "500": {
+                        "description": "Não foi possivel encontrar o filme"
+                    }
+                }
+                
+
             }
         }
     },
