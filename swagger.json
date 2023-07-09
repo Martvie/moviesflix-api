@@ -65,8 +65,8 @@
                 }
             },
             "delete": {
-                "tags":["Movie"],
-                "summary":"Remover um filme",
+                "tags": ["Movie"],
+                "summary": "Remover um filme",
                 "parameters": [
                     {
                         "name": "id",
@@ -82,15 +82,44 @@
                     "200": {
                         "description": "Filme Removido com sucesso"
                     },
-                    "404": {
-                        "description": "Filme não encontrado!"
-                    },
                     "500": {
-                        "description": "Não foi possivel encontrar o filme"
+                        "description": "Falha ao filtrar filmes por genero"
                     }
                 }
-                
-
+            }
+        },
+        "/movies/{genreName}": {
+            "get": {
+                "tags": ["Movie"],
+                "summary": "Filtrar Filmes por gênero",
+                "parameters": [
+                    {
+                        "name": "genreName",
+                        "in": "path",
+                        "required": true,
+                        "description": "Nome do Genero",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#components/schemas/Movie"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Falha ao filtrar filmes por genero"
+                    }
+                }
             }
         }
     },
